@@ -242,6 +242,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- 4K Coffee Background Slider Animation (2.6s transition) ---
+  const bgSliders = document.querySelectorAll('.coffee-bg-slider');
+  if (bgSliders.length > 0) {
+    let activeSlideIndex = 0;
+    const totalSlideCount = 3;
+
+    setInterval(() => {
+      activeSlideIndex = (activeSlideIndex + 1) % totalSlideCount;
+      bgSliders.forEach(slider => {
+        const slides = slider.querySelectorAll('.coffee-slide');
+        slides.forEach((slide, index) => {
+          if (index === activeSlideIndex) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+          }
+        });
+      });
+    }, 2600); // 2.6-second change animation as requested
+  }
+
+  // --- Navbar Scroll Mix Effect ---
+  const navbarEl = document.querySelector('.neo-navbar');
+  if (navbarEl) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbarEl.classList.add('scrolled');
+      } else {
+        navbarEl.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
   // Initial cart render
   renderCart();
 });
