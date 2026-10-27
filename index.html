@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BREW HOUSE | Neo-Brutalist Specialty Coffee & Roastery</title>
+  <title>Mocharé | Neo-Brutalist Specialty Coffee & Roastery</title>
   <meta name="description" content="A vibrant Neo-Brutalist Specialty Coffee & Roastery platform built with high-contrast borders, hard offset shadows, and bold geometric typography.">
   <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23171e19%22/><text y=%22.75em%22 x=%22.18em%22 font-size=%2280%22 fill=%22%23ffe17c%22 font-weight=%22bold%22>⚡</text></svg>">
@@ -25,25 +25,26 @@
   <header class="neo-navbar">
     <div class="container-max nav-inner">
       <!-- Left: Logo with 10x10 black square icon containing #ffe17c bolt -->
-      <a href="#hero" class="nav-logo-group" aria-label="Brew House Home">
+      <a href="#hero" class="nav-logo-group" aria-label="Mocharé Home">
         <div class="nav-bolt-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
         </div>
         <div>
-          <div class="nav-logo-text">BREW HOUSE</div>
+          <div class="nav-logo-text">MOCHARÉ</div>
           <div class="nav-logo-sub">CRAFT COFFEE & ROAST LAB</div>
         </div>
       </a>
 
       <!-- Center: Horizontal links in bold Satoshi -->
       <ul class="nav-links-center">
-        <li><a href="#features" class="nav-item-link">Features</a></li>
-        <li><a href="#problem-solution" class="nav-item-link">Comparison</a></li>
-        <li><a href="#how-it-works" class="nav-item-link">How It Works</a></li>
-        <li><a href="#menu-section" class="nav-item-link">Cafe Menu</a></li>
-        <li><a href="#testimonials" class="nav-item-link">Reviews</a></li>
+        <li><a href="#hero" class="nav-item-link">Home</a></li>
+        <li><a href="#about" class="nav-item-link">About</a></li>
+        <li><a href="#menu-section" class="nav-item-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-item-link">Gallery</a></li>
+        <li><a href="#reviews" class="nav-item-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-item-link">Contact</a></li>
       </ul>
 
       <!-- Right: Cart & CTA Button -->
@@ -58,9 +59,9 @@
           <span class="cart-count-pill" id="cart-counter">2</span>
         </button>
 
-        <!-- 'Start Free Trial' button (Black background, white text, 2px border, hard shadow) -->
+        <!-- 'Order Online' button -->
         <a href="#menu-section" class="btn-brutal-primary btn-brutal-sm" id="nav-trial-btn">
-          Start Free Trial
+          Order Online
         </a>
       </div>
     </div>
@@ -86,101 +87,31 @@
       </div>
 
       <div class="container-max">
-        <div class="hero-grid">
-          <!-- Left Column -->
-          <div>
-            <!-- Heading: Cabinet Grotesk 8xl, keyword stroke -->
-            <h1 class="hero-title-main">
-              Coffee Roasted <br>
-              <span class="text-stroke-brutal">RADICALLY</span> <br>
-              Different.
-            </h1>
+        <div class="hero-content-center">
 
-            <p class="hero-subtext">
-              The high-velocity specialty coffee platform. Real-time infrared roast profiling, algorithmic bean calibration, and 60-second express pickup for high-output thinkers.
-            </p>
+          <!-- Heading: Cabinet Grotesk 8xl, keyword stroke -->
+          <h1 class="hero-title-main">
+            Artisan Coffee <br>
+            <span class="text-stroke-brutal">BREWED</span> <br>
+            To Perfection.
+          </h1>
 
-            <!-- CTA Group -->
-            <div class="hero-cta-group">
-              <a href="#menu-section" class="btn-brutal-primary" id="hero-cta-order">
-                <span>Start Free Trial</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
+          <p class="hero-subtext">
+            Welcome to Mocharé — an artisan cafe and micro-roastery. Single-origin farm-direct beans, daily small-batch drum roasts, and handcrafted espresso drinks made fresh for true coffee lovers.
+          </p>
 
-              <a href="#how-it-works" class="btn-brutal-secondary" id="hero-cta-demo">
-                <span>Watch Live Demo (2m)</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Browser Mockup Dashboard (12px hard shadow) -->
-          <div class="browser-mockup-wrap">
-            <div class="browser-mockup" id="hero-browser-mockup">
-              <!-- Header Bar with 3 colored circles -->
-              <div class="mockup-header-bar">
-                <div class="mockup-traffic-lights">
-                  <div class="traffic-dot traffic-red"></div>
-                  <div class="traffic-dot traffic-yellow"></div>
-                  <div class="traffic-dot traffic-green"></div>
-                </div>
-                <div class="mockup-url-pill">app.brewhouse.cafe/live-roast-os</div>
-                <div style="width: 48px;"></div>
-              </div>
-
-              <!-- Content Area: grid with sage #b7c6c2 & charcoal #171e19 internal cards -->
-              <div class="mockup-content-body">
-                <div class="mockup-dashboard-top">
-                  <!-- Sage Card: Daily Extraction Yield -->
-                  <div class="mockup-stat-box mockup-stat-sage">
-                    <div class="mockup-stat-label">Extraction Yield</div>
-                    <div class="mockup-stat-num">98.4%</div>
-                    <div style="font-size: 0.75rem; font-weight: 700; margin-top: 4px;">+4.2% vs target TDS</div>
-                  </div>
-
-                  <!-- Charcoal Card: Live Revenue -->
-                  <div class="mockup-stat-box mockup-stat-charcoal">
-                    <div class="mockup-stat-label">Daily Orders</div>
-                    <div class="mockup-stat-num">$14,280</div>
-                    <div style="font-size: 0.75rem; color: var(--color-sage); margin-top: 4px;">⚡ 842 cups pulled</div>
-                  </div>
-                </div>
-
-                <!-- Internal White Card: Weekly Brew Analytics Chart -->
-                <div class="mockup-chart-card">
-                  <div class="mockup-chart-header">
-                    <div>
-                      <div style="font-family: var(--font-heading); font-weight: 800; font-size: 0.95rem;">Micro-Lot Roasting Output</div>
-                      <div style="font-size: 0.75rem; color: #71717a;">Cast Iron Drum Roaster • Real-time thermal telemetry</div>
-                    </div>
-                    <span class="badge-brutal-pill" style="padding: 0.2rem 0.6rem; font-size: 0.7rem; box-shadow: 2px 2px 0px #000;">
-                      204°C Peak
-                    </span>
-                  </div>
-
-                  <div class="chart-bars-wrap">
-                    <div class="chart-bar" style="height: 40%;" title="Mon: 42kg"></div>
-                    <div class="chart-bar" style="height: 65%;" title="Tue: 68kg"></div>
-                    <div class="chart-bar" style="height: 50%;" title="Wed: 54kg"></div>
-                    <div class="chart-bar" style="height: 85%;" title="Thu: 89kg"></div>
-                    <div class="chart-bar active" style="height: 100%;" title="Fri (Peak): 112kg"></div>
-                    <div class="chart-bar" style="height: 75%;" title="Sat: 80kg"></div>
-                    <div class="chart-bar" style="height: 55%;" title="Sun: 60kg"></div>
-                  </div>
-                </div>
-
-                <!-- Live Order Tracker Strip -->
-                <div class="mockup-live-orders">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #000;"></span>
-                    <span>Batch #418: Yirgacheffe G1</span>
-                  </div>
-                  <span style="font-family: monospace; font-weight: 800;">READY IN 4M</span>
-                </div>
-              </div>
-            </div>
+          <!-- CTA Group -->
+          <div class="hero-cta-group">
+            <a href="#menu-section" class="btn-brutal-primary" id="hero-cta-order">
+              <span>Explore Coffee Menu</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn-brutal-secondary" id="hero-cta-about">
+              <span>Our Coffee Story</span>
+            </a>
           </div>
         </div>
       </div>
@@ -194,23 +125,29 @@
          ========================================================================== -->
     <section class="social-proof-bar" aria-label="Partner Coffee Collectives">
       <div class="marquee-track">
-        <div class="marquee-item">APEX ROAST LABS</div>
-        <div class="marquee-item">HORIZON COFFEE CO.</div>
-        <div class="marquee-item">KINETIC BEAN WORKS</div>
-        <div class="marquee-item">FOUNDRY ROAST COLLECTIVE</div>
-        <div class="marquee-item">MERIDIAN COFFEE CO.</div>
-        <div class="marquee-item">SUMMIT ESPRESSO LAB</div>
-        <div class="marquee-item">ELEVATION CRAFT BEANS</div>
-        <div class="marquee-item">ZENITH ROASTING CO.</div>
+        <div class="marquee-item">ESPRESSO</div>
+        <div class="marquee-item">CAPPUCCINO</div>
+        <div class="marquee-item">FLAT WHITE</div>
+        <div class="marquee-item">CORTADO</div>
+        <div class="marquee-item">NITRO COLD BREW</div>
+        <div class="marquee-item">V60 POUR-OVER</div>
+        <div class="marquee-item">CAFFÈ LATTE</div>
+        <div class="marquee-item">AMERICANO</div>
+        <div class="marquee-item">CARAMEL MACCHIATO</div>
+        <div class="marquee-item">MOCHA VALRHONA</div>
+        <div class="marquee-item">AFFOGATO</div>
         <!-- Duplicated for seamless infinite loop -->
-        <div class="marquee-item">APEX ROAST LABS</div>
-        <div class="marquee-item">HORIZON COFFEE CO.</div>
-        <div class="marquee-item">KINETIC BEAN WORKS</div>
-        <div class="marquee-item">FOUNDRY ROAST COLLECTIVE</div>
-        <div class="marquee-item">MERIDIAN COFFEE CO.</div>
-        <div class="marquee-item">SUMMIT ESPRESSO LAB</div>
-        <div class="marquee-item">ELEVATION CRAFT BEANS</div>
-        <div class="marquee-item">ZENITH ROASTING CO.</div>
+        <div class="marquee-item">ESPRESSO</div>
+        <div class="marquee-item">CAPPUCCINO</div>
+        <div class="marquee-item">FLAT WHITE</div>
+        <div class="marquee-item">CORTADO</div>
+        <div class="marquee-item">NITRO COLD BREW</div>
+        <div class="marquee-item">V60 POUR-OVER</div>
+        <div class="marquee-item">CAFFÈ LATTE</div>
+        <div class="marquee-item">AMERICANO</div>
+        <div class="marquee-item">CARAMEL MACCHIATO</div>
+        <div class="marquee-item">MOCHA VALRHONA</div>
+        <div class="marquee-item">AFFOGATO</div>
       </div>
     </section>
 
@@ -221,361 +158,66 @@
          Card B (Solution): #ffe17c, 2px solid black border, 8px hard shadow.
          Both cards use bold lists with custom check/x icons.
          ========================================================================== -->
-    <section class="problem-solution-section" id="problem-solution">
-      <div class="container-max">
-        <div class="section-title-wrap">
-          <span class="section-pill-tag">THE COFFEE UPGRADE</span>
-          <h2 class="section-heading-lg">Why Traditional Coffee Fails Modern Operators.</h2>
-        </div>
-
-        <div class="cards-comparison-grid">
-          <!-- Card A: Problem -->
-          <div class="card-problem">
-            <span class="card-status-label">✕ TRADITIONAL CAFE STRUGGLES</span>
-            <h3 class="card-compare-title">The Stale, Inconsistent Commodity Experience</h3>
-
-            <ul class="compare-list">
-              <li class="compare-item">
-                <div class="icon-x">✕</div>
-                <div>
-                  <strong>Mystery Roast Dates:</strong> Beans sitting in warehouse bags for 6+ months losing aromatic volatile oils.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-x">✕</div>
-                <div>
-                  <strong>Erratic Channeling:</strong> Uncalibrated baristas pulling bitter, astringent shots without real-time pressure profiling.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-x">✕</div>
-                <div>
-                  <strong>20-Minute Morning Lines:</strong> Frustrating waits while your morning momentum completely evaporates.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-x">✕</div>
-                <div>
-                  <strong>Opaque Supply Chain:</strong> Vague "fair trade" labels that mask industrial blending and low producer compensation.
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Card B: Solution -->
-          <div class="card-solution">
-            <span class="card-status-label">✓ THE BREW HOUSE ADVANTAGE</span>
-            <h3 class="card-compare-title">Algorithmic Roast Precision & Instant Tap Pickup</h3>
-
-            <ul class="compare-list">
-              <li class="compare-item">
-                <div class="icon-check">✓</div>
-                <div>
-                  <strong>Strict 48-Hour Rest Cycles:</strong> Direct-trade micro-lots roasted in 10kg drums, sealed at peak degassing.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-check">✓</div>
-                <div>
-                  <strong>AI Thermal Telemetry:</strong> Continuous 93.5°C multi-boiler stability with 9-bar pressure curve calibration.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-check">✓</div>
-                <div>
-                  <strong>60-Second Express Lane:</strong> Pre-order from your phone; your drink is freshly extracted the second your geo-beacon arrives.
-                </div>
-              </li>
-              <li class="compare-item">
-                <div class="icon-check">✓</div>
-                <div>
-                  <strong>100% Farm-Direct Transparency:</strong> Scan any cup to inspect soil elevation, farmer payout, and refractometer TDS scores.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ==========================================================================
-         FEATURE GRID
-         Background #ffe17c, border-y-2 border-black.
-         3-column grid of white cards. Each card: 2px border, 4px hard shadow.
-         Top of card features a 16x16 (64px) icon box in #b7c6c2 that turns #ffe17c on hover.
-         Headings are Cabinet Grotesk 2xl.
+         NEO-BRUTALIST ABOUT ATELIER SECTION
+         Positioning: Left visual showcase, Right story narrative & bento stats
+         Bespoke Neo-Brutalist aesthetic: angled yellow backdrop slab, brutalist pin badge,
+         profile telemetry widget, bento stat boxes, and high-impact buttons.
          ========================================================================== -->
-    <section class="feature-grid-section bg-yellow-dots" id="features">
-      <!-- 4K Coffee Background Slider (2-3s animated transition) -->
-      <div class="coffee-bg-slider" aria-hidden="true">
-        <div class="coffee-slide active" style="background-image: url('assets/images/hero-espresso.jpg');"></div>
-        <div class="coffee-slide" style="background-image: url('assets/images/coffee-beans-4k.jpg');"></div>
-        <div class="coffee-slide" style="background-image: url('assets/images/feature-pourover.jpg');"></div>
-        <div class="coffee-slide-tint"></div>
-        <div class="coffee-slide-dots"></div>
-      </div>
-
+    <section class="brutal-about-section" id="about">
       <div class="container-max">
-        <div class="section-title-wrap">
-          <span class="section-pill-tag">ENGINEERED FOR TASTE</span>
-          <h2 class="section-heading-lg">Precision Capabilities for Coffee Perfectionists.</h2>
-        </div>
+        <div class="brutal-about-grid">
+          <!-- Left: Multi-layered Neo-Brutalist Visual Showcase -->
+          <div class="brutal-about-visual">
+            <!-- Tilted Yellow Brutalist Offset Slab -->
+            <div class="brutal-visual-slab" aria-hidden="true"></div>
 
-        <div class="features-3col-grid">
-          <!-- Feature 1 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                <path d="M2 12h20"></path>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Micro-Lot Sourcing</h3>
-            <p class="feature-card-desc">
-              Direct relationship sourcing from volcanic slopes of Huila, Sidama, and Chiriquí. Zero filler beans, ever.
-            </p>
-          </div>
-
-          <!-- Feature 2 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Infrared AI Profiling</h3>
-            <p class="feature-card-desc">
-              Proprietary roast curves monitored down to 0.1°C per second to unlock sweet floral aromatics without smoky carbon.
-            </p>
-          </div>
-
-          <!-- Feature 3 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Nitro Cascaded Brew</h3>
-            <p class="feature-card-desc">
-              24-hour slow ice towers charged with pure nitrogen for a velvety micro-foam head and naturally sweet chocolate finish.
-            </p>
-          </div>
-
-          <!-- Feature 4 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"></path>
-                <circle cx="12" cy="9" r="2.5"></circle>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Oat & Botanical Lab</h3>
-            <p class="feature-card-desc">
-              Minor Figures and custom oat emulsions steamed to 62°C to create elastic, silky microfoam without masking bean terroir.
-            </p>
-          </div>
-
-          <!-- Feature 5 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="m19 12-7-7-7 7"></path>
-                <path d="M12 19V5"></path>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Laminated Viennoiserie</h3>
-            <p class="feature-card-desc">
-              72-layer Normandy butter pain au chocolat and sourdough crumbles baked fresh at 6:30 AM every morning.
-            </p>
-          </div>
-
-          <!-- Feature 6 -->
-          <div class="feature-white-card">
-            <div class="feature-icon-16">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="M7 15h0M2 9.5h20"></path>
-              </svg>
-            </div>
-            <h3 class="feature-card-heading">Contactless Express</h3>
-            <p class="feature-card-desc">
-              One-tap NFC or mobile app order with guaranteed ready times. Grab your cup hot from the locker and keep moving.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         HOW IT WORKS
-         Dark mode section (Background #171e19). 3-step horizontal flow.
-         Steps marked by large 24x24 (96px) circles with 4px colored 'glow' borders
-         (Sage, Yellow, White). Connected by a dark gray #272727 horizontal line.
-         ========================================================================== -->
-    <section class="how-it-works-section" id="how-it-works">
-      <div class="container-max">
-        <div class="section-title-wrap">
-          <span class="section-pill-tag" style="background-color: var(--color-sage);">THE 3-STEP PIPELINE</span>
-          <h2 class="section-heading-lg" style="color: var(--color-white);">From Green Bean to Your Desk in 3 Clicks.</h2>
-        </div>
-
-        <div class="how-steps-track">
-          <!-- Step 1: Sage -->
-          <div class="how-step-col">
-            <div class="how-step-circle circle-border-sage">
-              01
-            </div>
-            <h3 class="how-step-title">Select Roast & Lot</h3>
-            <p class="how-step-desc">
-              Choose from light floral Ethiopian Yirgacheffe, juicy Huila washed, or our signature dark espresso blend.
-            </p>
-          </div>
-
-          <!-- Step 2: Yellow -->
-          <div class="how-step-col">
-            <div class="how-step-circle circle-border-yellow">
-              02
-            </div>
-            <h3 class="how-step-title">Dial In Custom Specs</h3>
-            <p class="how-step-desc">
-              Customize beverage size, oat or almond microfoam density, and add extra ristretto pulls in real-time.
-            </p>
-          </div>
-
-          <!-- Step 3: White -->
-          <div class="how-step-col">
-            <div class="how-step-circle circle-border-white">
-              03
-            </div>
-            <h3 class="how-step-title">Instant Express Pickup</h3>
-            <p class="how-step-desc">
-              Walk right up to the express counter. Your cup is freshly pulled with dense crema waiting for your name.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         USE CASE PERSONAS
-         White background. 3-column bento-style grid.
-         Card 1: Sage (#b7c6c2). Card 2: Yellow (#ffe17c) with 8px hard shadow.
-         Card 3: Dark Gray (#272727) with white text.
-         Each card features a white 'pill' badge at the top indicating user type.
-         ========================================================================== -->
-    <section class="personas-section" id="personas">
-      <div class="container-max">
-        <div class="section-title-wrap">
-          <span class="section-pill-tag">WHO DRINKS AT BREW HOUSE</span>
-          <h2 class="section-heading-lg">Tailored for Every Focus Rhythm.</h2>
-        </div>
-
-        <div class="personas-grid">
-          <!-- Card 1: Sage (#b7c6c2) -->
-          <div class="persona-card persona-card-sage">
-            <span class="persona-pill-badge">THE DAILY COMMUTER</span>
-            <h3 class="persona-title">Rapid Fuel on the Go</h3>
-            <p class="persona-quote">
-              "I used to spend 25 minutes standing in noisy queues every morning. Now I tap my order as I exit the train, and my double cortado is piping hot the second I walk in."
-            </p>
-            <div class="persona-stat-row">
-              <span>Avg Morning Wait</span>
-              <strong style="font-family: var(--font-heading); font-size: 1.25rem;">42 SECONDS</strong>
+            <!-- Foreground Photo Card -->
+            <div class="brutal-visual-card">
+              <img src="assets/images/feature-pourover.jpg" alt="Artisan single-origin pour-over extraction at Mocharé atelier" loading="lazy">
             </div>
           </div>
 
-          <!-- Card 2: Yellow (#ffe17c) with 8px hard shadow -->
-          <div class="persona-card persona-card-yellow">
-            <span class="persona-pill-badge">THE SPECIALTY GEEK</span>
-            <h3 class="persona-title">Obsessed with Extraction</h3>
-            <p class="persona-quote">
-              "Finally a place that doesn't incinerate single-origin beans. The Jasmine and peach notes on the pour-over are so distinct you don't need a single gram of sugar."
-            </p>
-            <div class="persona-stat-row">
-              <span>Refractometer TDS</span>
-              <strong style="font-family: var(--font-heading); font-size: 1.25rem;">1.42 OPTIMAL</strong>
+          <!-- Right: Story Narrative, Bento Stats & CTAs -->
+          <div class="brutal-about-content">
+            <!-- Dash Line Tag: ABOUT US -->
+            <div class="about-tag-line">
+              <span class="about-tag-dash"></span>
+              <span>ABOUT US</span>
             </div>
-          </div>
 
-          <!-- Card 3: Dark Gray (#272727) with white text -->
-          <div class="persona-card persona-card-dark">
-            <span class="persona-pill-badge">THE DIGITAL NOMAD</span>
-            <h3 class="persona-title">Deep Work Sanctuary</h3>
-            <p class="persona-quote">
-              "Gigabit optical wireless, silent acoustics, solid walnut workspaces, and unlimited sparkling water refills. My productivity here is 3x higher than working from home."
+            <h2 class="brutal-about-heading">
+              ENGINEERED EXTRACTION.<br>
+              <span class="brutal-highlight-tag">ZERO COMPROMISE.</span>
+            </h2>
+
+            <p class="brutal-about-desc">
+              Mocharé was built to dismantle industrial shortcuts. We roast farm-direct micro-lots in 10kg cast-iron drums daily, profiling thermal rise down to 0.1°C per second for profound clarity and delicate natural aromatics.
             </p>
-            <div class="persona-stat-row">
-              <span>Session Wi-Fi Speed</span>
-              <strong style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-yellow);">940 MBPS FIBER</strong>
+
+            <p class="brutal-about-desc" style="color: #555555; margin-bottom: 2rem;">
+              From volcanic partner estates in Huila, Sidama, and Chiriquí to our quiet walnut workspaces, every extraction is dialed to honor the producer's craft and spark your deep flow state.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="brutal-about-actions">
+              <a href="#menu-section" class="btn-brutal-primary">
+                <span>Explore Coffee Menu</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="#contact" class="btn-brutal-secondary">
+                <span>Roastery Hours & Location</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         TESTIMONIALS
-         Background #b7c6c2 (Sage). Grid of 3 white cards.
-         Unique styling: Asymmetric corner rounding (Top-Right and Bottom-Left are 3xl,
-         Top-Left and Bottom-Right are 2px). Includes 5-star rating in #ffbc2e yellow.
-         ========================================================================== -->
-    <section class="testimonials-section" id="testimonials">
-      <div class="container-max">
-        <div class="section-title-wrap">
-          <span class="section-pill-tag" style="background-color: var(--color-yellow);">VERIFIED PATRONS</span>
-          <h2 class="section-heading-lg">Loved by Founders, Engineers & Baristas.</h2>
-        </div>
-
-        <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
-          <div class="asymmetric-testimonial-card">
-            <div class="star-rating-row" aria-label="5 stars">★★★★★</div>
-            <p class="testimonial-quote-text">
-              "The Nitro Cold Brew genuinely tastes like liquid velvet. We replaced our entire office espresso machine with Brew House bulk craft kegs. The engineering team has never been happier."
-            </p>
-            <div class="testimonial-author-wrap">
-              <div class="testimonial-avatar">EV</div>
-              <div>
-                <div class="author-name">Elena Vance</div>
-                <div class="author-role">VP Product @ CloudScale Systems</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="asymmetric-testimonial-card">
-            <div class="star-rating-row" aria-label="5 stars">★★★★★</div>
-            <p class="testimonial-quote-text">
-              "Their single-origin V60 pour over is the cleanest cup I've had in North America. The roast profiling consistency is uncanny. You taste the farm, not the roaster."
-            </p>
-            <div class="testimonial-author-wrap">
-              <div class="testimonial-avatar">MK</div>
-              <div>
-                <div class="author-name">Marcus Cole</div>
-                <div class="author-role">Q-Grader & Roast Consultant</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="asymmetric-testimonial-card">
-            <div class="star-rating-row" aria-label="5 stars">★★★★★</div>
-            <p class="testimonial-quote-text">
-              "The Neo-Brutalist ordering UI is super snappy and the coffee is unmatched. The double cortado with warm pain au chocolat is my non-negotiable morning ritual."
-            </p>
-            <div class="testimonial-author-wrap">
-              <div class="testimonial-avatar">SJ</div>
-              <div>
-                <div class="author-name">Sarah Jenkins</div>
-                <div class="author-role">Founder @ HyperFlow Tech</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ==========================================================================
          INTERACTIVE CAFE MENU BENTO SECTION
@@ -810,122 +452,241 @@
     </section>
 
     <!-- ==========================================================================
-         FINAL CTA
-         Final CTA on #ffe17c with large centered heading.
+         GALLERY SECTION
+         Showcase cafe interior, crowd, roastery, and craft
          ========================================================================== -->
-    <section class="final-cta-section bg-yellow-dots">
-      <!-- 4K Coffee Background Slider (2-3s animated transition) -->
-      <div class="coffee-bg-slider" aria-hidden="true">
-        <div class="coffee-slide active" style="background-image: url('assets/images/hero-espresso.jpg');"></div>
-        <div class="coffee-slide" style="background-image: url('assets/images/coffee-beans-4k.jpg');"></div>
-        <div class="coffee-slide" style="background-image: url('assets/images/feature-pourover.jpg');"></div>
-        <div class="coffee-slide-tint"></div>
-        <div class="coffee-slide-dots"></div>
-      </div>
-
+    <!-- ==========================================================================
+         GALLERY SECTION
+         Layout matches user screenshot: Left tall, Top-Mid, Top-Right, Bottom-Wide
+         ========================================================================== -->
+    <section class="gallery-section bg-dark-dots" id="gallery">
       <div class="container-max">
-        <div class="cta-box-center">
-          <span class="section-pill-tag">GET STARTED TODAY</span>
-          <h2 class="final-cta-heading">Ready for Coffee that Matches Your Velocity?</h2>
-          <p class="final-cta-desc">
-            Join over 12,000 operators and founders enjoying zero-friction specialty coffee with automated weekly office delivery or express pickup.
-          </p>
+        <div class="section-title-wrap">
+          <span class="section-pill-tag">GALLERY ARCHITECTURE</span>
+          <h2 class="section-heading-lg" style="color: #ffffff; text-shadow: 3px 3px 0px #000000;">Inside The Atelier.</h2>
+          <p class="about-lead-desc" style="color: var(--color-sage);">Our roastery, espresso bar, and focus commons in four moments.</p>
+        </div>
 
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#menu-section" class="btn-brutal-primary" style="font-size: 1.15rem; padding: 1.1rem 2.5rem;">
-              <span>Start Free Trial • 14 Days</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+        <div class="gallery-mosaic-grid">
+          <!-- Left: Tall Street / Outdoor Cafe Seating (Spans 2 rows) -->
+          <div class="gallery-mosaic-card card-left-tall">
+            <img src="gallery/interior.jpg" alt="Outdoor Atelier Seating" class="mosaic-photo" loading="lazy">
+          </div>
 
-            <a href="#how-it-works" class="btn-brutal-secondary" style="font-size: 1.15rem; padding: 1.1rem 2.2rem;">
-              <span>Schedule Roastery Tour</span>
-            </a>
+          <!-- Top Middle: Coffee Beans -->
+          <div class="gallery-mosaic-card card-top-mid">
+            <img src="gallery/coffee-beans.jpg" alt="Coffee Beans" class="mosaic-photo" loading="lazy">
+          </div>
+
+          <!-- Top Right: Espresso from Above -->
+          <div class="gallery-mosaic-card card-top-right">
+            <img src="gallery/hero-espresso.jpg" alt="Double Ristretto Crema" class="mosaic-photo" loading="lazy">
+          </div>
+
+          <!-- Bottom Wide: Crowd & Barista Bar (Spans cols 2 & 3) -->
+          <div class="gallery-mosaic-card card-bottom-wide">
+            <img src="gallery/crowd.png" alt="Cafe Crowd & Barista Station" class="mosaic-photo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         REVIEWS SECTION
+         Auto-scrolling carousel (3 visible cards, auto-scroll left every 2s)
+         Pratyush, Piyush, Anurag, John, Bruce
+         ========================================================================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="container-max">
+        <div class="section-title-wrap">
+          <span class="section-pill-tag">VERIFIED PATRONS</span>
+          <h2 class="section-heading-lg">Loved by Coffee Perfectionists.</h2>
+          <p class="about-lead-desc">Real stories from engineers, founders, and coffee connoisseurs.</p>
+        </div>
+
+        <div class="reviews-carousel-wrapper">
+          <div class="reviews-carousel-viewport" id="reviews-viewport">
+            <div class="reviews-carousel-track" id="reviews-track">
+              <!-- Review 1: Pratyush -->
+              <div class="review-card-item">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-quote-text">
+                  "The algorithmic roast precision is unbelievable. The single-origin V60 with jasmine notes pulled my focus through an intense 6-hour sprint with zero crash."
+                </p>
+                <div class="review-author-wrap">
+                  <div class="review-avatar">PR</div>
+                  <div>
+                    <div class="review-author-name">Pratyush</div>
+                    <div class="review-author-role">Staff Engineer @ HyperFlow</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 2: Piyush -->
+              <div class="review-card-item">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-quote-text">
+                  "Hands down the best nitro cascaded brew in the city. Silky liquid velvet, zero bitter carbon, and the 60-second express pickup saves my morning commute."
+                </p>
+                <div class="review-author-wrap">
+                  <div class="review-avatar">PI</div>
+                  <div>
+                    <div class="review-author-name">Piyush</div>
+                    <div class="review-author-role">Product Architect @ NeoDesign</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 3: Anurag -->
+              <div class="review-card-item">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-quote-text">
+                  "Finally a specialty cafe that treats extraction like pure science. The double ristretto has that rich tiger-stripe crema you only find in top Milanese roast labs."
+                </p>
+                <div class="review-author-wrap">
+                  <div class="review-avatar">AN</div>
+                  <div>
+                    <div class="review-author-name">Anurag</div>
+                    <div class="review-author-role">Q-Grader & Coffee Enthusiast</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 4: John -->
+              <div class="review-card-item">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-quote-text">
+                  "Solid walnut workspaces, gigabit optical fiber, and warm pain au chocolat baked fresh at 6:30 AM. My productivity here is 3x higher than working from home."
+                </p>
+                <div class="review-author-wrap">
+                  <div class="review-avatar">JO</div>
+                  <div>
+                    <div class="review-author-name">John</div>
+                    <div class="review-author-role">Engineering Director @ CloudScale</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 5: Bruce -->
+              <div class="review-card-item">
+                <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                <p class="review-quote-text">
+                  "Mocharé is playing in a different league. From direct farm transparency to real-time 9-bar telemetry curves, this is radical craft meeting uncompromising taste."
+                </p>
+                <div class="review-author-wrap">
+                  <div class="review-avatar">BR</div>
+                  <div>
+                    <div class="review-author-name">Bruce</div>
+                    <div class="review-author-role">Venture Partner & Patron</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="reviews-controls-row">
+            <button class="review-nav-btn" id="reviews-prev-btn" aria-label="Previous Reviews">←</button>
+            <div class="reviews-dots-wrap" id="reviews-dots"></div>
+            <button class="review-nav-btn" id="reviews-next-btn" aria-label="Next Reviews">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT SECTION
+         Atelier visit, hours, map location, and direct inquiry form
+         ========================================================================== -->
+    <section class="contact-section" id="contact">
+      <div class="container-max">
+        <div class="section-title-wrap">
+          <span class="section-pill-tag">GET IN TOUCH</span>
+          <h2 class="section-heading-lg">Visit Our Atelier Or Drop A Line.</h2>
+          <p class="about-lead-desc">Stop by for your daily roast or reach out regarding wholesale partnerships.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Location & Hours Info -->
+          <div class="contact-info-card">
+            <span class="contact-card-badge">FLAGSHIP ATELIER</span>
+            <h3 class="contact-location-title">Mocharé SOMA Roastery</h3>
+            <p class="contact-address-text">
+              📍 742 Mission Street, Suite 100<br>
+              San Francisco, CA 94103
+            </p>
+
+            <div class="contact-detail-group">
+              <div class="contact-detail-item">
+                <span class="detail-label">Roastery Hours</span>
+                <div class="detail-val">
+                  <div>Mon – Fri: <strong>06:30 – 19:00</strong></div>
+                  <div>Sat – Sun: <strong>07:30 – 20:00</strong></div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <span class="detail-label">Direct Phone</span>
+                <div class="detail-val">
+                  <a href="tel:+14158902739" class="contact-link">+1 (415) 890-BREW</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <span class="detail-label">Electronic Mail</span>
+                <div class="detail-val">
+                  <a href="mailto:hello@mochare.cafe" class="contact-link">hello@mochare.cafe</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Neo-Brutalist Form -->
+          <div class="contact-form-card">
+            <span class="contact-card-badge">SEND AN INQUIRY</span>
+            <h3 class="contact-form-title">Say Hello or Reserve</h3>
+
+            <form id="contact-form" class="brutal-form" novalidate>
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Full Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Jordan Smith" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="jordan@domain.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-topic" class="form-label">Inquiry Topic</label>
+                <select id="contact-topic" class="form-input form-select">
+                  <option value="General Question">General Question</option>
+                  <option value="Table / Co-Working Reservation">Table / Co-Working Reservation</option>
+                  <option value="Wholesale Beans & Office Kegs">Wholesale Beans & Office Kegs</option>
+                  <option value="Private Roastery Tour">Private Roastery Tour</option>
+                  <option value="Press & Media">Press & Media</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Your Message</label>
+                <textarea id="contact-message" rows="3" class="form-input form-textarea" placeholder="Tell us how we can assist you..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-brutal-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
+                <span>Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- ==========================================================================
-       FOOTER
-       Footer in #171e19 with 4 columns.
-       Social icons are 10x10 squares (#272727) with light gray borders
-       that turn Yellow/Black on hover.
-       ========================================================================== -->
-  <footer class="neo-footer">
-    <div class="container-max">
-      <div class="footer-4col-grid">
-        <!-- Col 1: Brand & Socials -->
-        <div>
-          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-            <div class="nav-bolt-icon" style="width: 2.25rem; height: 2.25rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
-            </div>
-            <div class="nav-logo-text" style="color: var(--color-white); font-size: 1.35rem;">BREW HOUSE</div>
-          </div>
-          <p style="font-size: 0.9rem; color: var(--color-sage); max-width: 300px; line-height: 1.55;">
-            The world’s first Neo-Brutalist coffee architecture. Real-time roast telemetry, micro-lot traceability, and zero-wait pickup.
-          </p>
-
-          <!-- Social Icons: 10x10 squares (#272727) with light gray borders that turn Yellow/Black on hover -->
-          <div class="social-icons-row">
-            <a href="#" class="social-sq-btn" aria-label="Twitter">𝕏</a>
-            <a href="#" class="social-sq-btn" aria-label="GitHub">GH</a>
-            <a href="#" class="social-sq-btn" aria-label="LinkedIn">IN</a>
-            <a href="#" class="social-sq-btn" aria-label="Instagram">IG</a>
-          </div>
-        </div>
-
-        <!-- Col 2: Platform -->
-        <div>
-          <h4 class="footer-col-title">Platform</h4>
-          <ul class="footer-links-list">
-            <li><a href="#hero" class="footer-link-item">Roast OS 2.0</a></li>
-            <li><a href="#features" class="footer-link-item">Micro-Lot Index</a></li>
-            <li><a href="#how-it-works" class="footer-link-item">Thermal Profiling</a></li>
-            <li><a href="#menu-section" class="footer-link-item">Live Menu</a></li>
-            <li><a href="#" class="footer-link-item">Enterprise Kegs</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Sanctuary -->
-        <div>
-          <h4 class="footer-col-title">Cafes</h4>
-          <ul class="footer-links-list">
-            <li><a href="#" class="footer-link-item">San Francisco • SOMA</a></li>
-            <li><a href="#" class="footer-link-item">New York • SoHo</a></li>
-            <li><a href="#" class="footer-link-item">Seattle • Capitol Hill</a></li>
-            <li><a href="#" class="footer-link-item">Austin • East 6th</a></li>
-            <li><a href="#" class="footer-link-item">London • Shoreditch</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Roastery Hours -->
-        <div>
-          <h4 class="footer-col-title">Atelier Hours</h4>
-          <ul class="footer-links-list">
-            <li style="color: var(--color-white); font-weight: 700;">Mon – Fri: 06:30 – 19:00</li>
-            <li style="color: var(--color-white); font-weight: 700;">Sat – Sun: 07:30 – 20:00</li>
-            <li style="color: var(--color-yellow); margin-top: 0.5rem; font-weight: 800;">⚡ Live Drum Roasting: Daily 09:00</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom-legal">
-        <div>© 2026 Brew House Coffee Co. All rights reserved. Strict Neo-Brutalist Architecture.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" class="footer-link-item">Terms of Roast</a>
-          <a href="#" class="footer-link-item">Privacy Policy</a>
-          <a href="#" class="footer-link-item">Producer Pay Transparency</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- ==========================================================================
        NEO-BRUTALIST CART DRAWER

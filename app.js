@@ -275,6 +275,165 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // --- Contact Form Submission ---
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('contact-name');
+      const emailInput = document.getElementById('contact-email');
+      const msgInput = document.getElementById('contact-message');
+
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !msgInput.value.trim()) {
+        showToast('⚠️ Please fill out all required fields');
+        return;
+      }
+
+      showToast(`⚡ Message sent! Thank you, ${nameInput.value.trim().split(' ')[0]}.`);
+      contactForm.reset();
+    });
+  }
+
+  // --- Reviews Auto-Scroll Carousel (Every 2s, scroll to left, 3 visible reviews) ---
+  const reviewsTrack = document.getElementById('reviews-track');
+  const reviewsViewport = document.getElementById('reviews-viewport');
+  const prevBtn = document.getElementById('reviews-prev-btn');
+  const nextBtn = document.getElementById('reviews-next-btn');
+  const dotsWrap = document.getElementById('reviews-dots');
+
+  if (reviewsTrack) {
+    const originalCards = Array.from(reviewsTrack.children);
+    const totalOriginals = originalCards.length; // 5 cards
+    let currentIndex = 0;
+    let autoScrollTimer = null;
+    let isTransitioning = false;
+
+    // Clone first 3 cards and append to track for seamless circular scrolling
+    originalCards.slice(0, 3).forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      reviewsTrack.appendChild(clone);
+    });
+
+    // Create 5 indicator dots
+    if (dotsWrap) {
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < totalOriginals; i++) {
+        const dot = document.createElement('button');
+        dot.className = `review-dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(i, true);
+          resetAutoScroll();
+        });
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots(activeIdx) {
+      if (!dotsWrap) return;
+      const dots = dotsWrap.querySelectorAll('.review-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIdx % totalOriginals);
+      });
+    }
+
+    function getCardStepWidth() {
+      const firstCard = reviewsTrack.children[0];
+      if (!firstCard) return 0;
+      const cardRect = firstCard.getBoundingClientRect();
+      const gap = 24; // 1.5rem = 24px
+      return cardRect.width + gap;
+    }
+
+    function goToSlide(index, animate = true) {
+      if (animate) {
+        reviewsTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      } else {
+        reviewsTrack.style.transition = 'none';
+      }
+      currentIndex = index;
+      const step = getCardStepWidth();
+      reviewsTrack.style.transform = `translateX(-${currentIndex * step}px)`;
+      updateDots(currentIndex);
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      currentIndex++;
+      goToSlide(currentIndex, true);
+
+      // If we reached the cloned section (index == totalOriginals), reset seamlessly
+      if (currentIndex === totalOriginals) {
+        isTransitioning = true;
+        setTimeout(() => {
+          goToSlide(0, false);
+          isTransitioning = false;
+        }, 620); // right after 0.6s transition ends
+      }
+    }
+
+    function prevSlide() {
+      if (isTransitioning) return;
+      if (currentIndex === 0) {
+        // Jump to clone end first without animation, then slide to totalOriginals - 1
+        goToSlide(totalOriginals, false);
+        setTimeout(() => {
+          currentIndex = totalOriginals - 1;
+          goToSlide(currentIndex, true);
+        }, 20);
+      } else {
+        currentIndex--;
+        goToSlide(currentIndex, true);
+      }
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoScrollTimer = setInterval(nextSlide, 2000); // 2 seconds auto-scroll as requested
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollTimer) {
+        clearInterval(autoScrollTimer);
+        autoScrollTimer = null;
+      }
+    }
+
+    function resetAutoScroll() {
+      stopAutoScroll();
+      startAutoScroll();
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoScroll();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoScroll();
+      });
+    }
+
+    // Pause on mouse hover, resume on mouse leave
+    if (reviewsViewport) {
+      reviewsViewport.addEventListener('mouseenter', stopAutoScroll);
+      reviewsViewport.addEventListener('mouseleave', startAutoScroll);
+    }
+
+    // Recalculate on window resize
+    window.addEventListener('resize', () => {
+      goToSlide(currentIndex % totalOriginals, false);
+    });
+
+    // Start auto-scroll immediately
+    startAutoScroll();
+  }
+
   // Initial cart render
   renderCart();
 });
