@@ -1,0 +1,1609 @@
+/* ==========================================================================
+   NEO-BRUTALIST CAFE COFFEE DESIGN SYSTEM
+   Palette:
+     - Primary: #ffe17c (Yellow)
+     - Background / Dark: #171e19 (Charcoal)
+     - Accent: #b7c6c2 (Sage)
+     - UI: #ffffff (White)
+     - Text / Lines: #000000 (Black)
+     - Dark Gray: #272727
+   Rules:
+     - 2px solid #000000 borders everywhere
+     - 4px, 8px, 12px Hard Shadows (ZERO blur)
+     - 32px radial dot pattern on yellow sections
+     - Button press translate micro-interactions
+     - Asymmetric corners on testimonials
+   ========================================================================== */
+
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&f[]=satoshi@700,500,400&display=swap');
+
+:root {
+  --color-yellow: #ffe17c;
+  --color-charcoal: #171e19;
+  --color-sage: #b7c6c2;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-gray: #272727;
+  --color-star: #ffbc2e;
+  --color-problem-bg: #f4f4f5;
+
+  /* Strict 2px borders */
+  --border-brutal: 2px solid #000000;
+  --border-white: 2px solid #ffffff;
+
+  /* Hard Shadows (Zero blur) */
+  --shadow-sm: 2px 2px 0px 0px #000000;
+  --shadow-md: 4px 4px 0px 0px #000000;
+  --shadow-lg: 8px 8px 0px 0px #000000;
+  --shadow-xl: 12px 12px 0px 0px #000000;
+
+  /* Typography */
+  --font-heading: 'Cabinet Grotesk', -apple-system, sans-serif;
+  --font-body: 'Satoshi', -apple-system, sans-serif;
+
+  /* Radius rules: keep geometric */
+  --radius-btn: 0.75rem; /* 12px max */
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+  --radius-container: 1.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-charcoal);
+  color: var(--color-black);
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+  line-height: 1.45;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   NEO-BRUTALIST UTILITIES & REUSABLE STYLES
+   ========================================================================== */
+.container-max {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-max {
+    padding-inline: 3rem;
+  }
+}
+
+/* 32px x 32px radial dot pattern on yellow */
+.bg-yellow-dots {
+  background-color: var(--color-yellow);
+  background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* Neo-Brutalist Push Buttons */
+.btn-brutal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.9rem 1.85rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  border: var(--border-brutal);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-brutal-primary:hover {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-md);
+  color: var(--color-yellow);
+}
+
+.btn-brutal-primary:active {
+  transform: translate(8px, 8px);
+  box-shadow: 0px 0px 0px 0px #000000;
+}
+
+.btn-brutal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 0.9rem 1.85rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  border: var(--border-brutal);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-brutal-secondary:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px #000000;
+  background-color: var(--color-sage);
+}
+
+.btn-brutal-sm {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-brutal-sm:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-brutal-sm:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px #000000;
+}
+
+/* Brutal Badges */
+.badge-brutal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-black);
+}
+
+/* ==========================================================================
+   FIXED NAVIGATION
+   Fixed header at top-0, h-20 (80px), background #ffe17c, border-b-2 border-black.
+   Left: Logo with a 10x10 (40px) black square icon containing a #ffe17c bolt.
+   Center: Horizontal links in bold Satoshi.
+   Right: 'Start Free Trial' / 'Order Coffee' button.
+   ========================================================================== */
+.neo-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem; /* 80px */
+  background-color: var(--color-yellow);
+  border-bottom: var(--border-brutal);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.nav-bolt-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: var(--color-black);
+  border: var(--border-brutal);
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-yellow);
+  transition: transform 0.2s;
+}
+
+.nav-logo-group:hover .nav-bolt-icon {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.nav-logo-sub {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--color-black);
+  color: var(--color-yellow);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.nav-links-center {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+@media (min-width: 860px) {
+  .nav-links-center {
+    display: flex;
+  }
+}
+
+.nav-item-link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--color-black);
+  padding: 0.3rem 0.5rem;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.nav-item-link:hover {
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  border-radius: 4px;
+}
+
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.nav-cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: var(--radius-btn);
+  padding: 0.55rem 0.9rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.nav-cart-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+  background-color: var(--color-sage);
+}
+
+.cart-count-pill {
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  font-size: 0.75rem;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   Two-column grid on #ffe17c background with radial dot pattern.
+   Left column: Badge, Heading Cabinet Grotesk 8xl with -webkit-text-stroke,
+   CTA group. Right column: Browser mockup with 12px hard shadow.
+   ========================================================================== */
+.hero-section {
+  padding-top: 8rem; /* Clear 80px fixed header */
+  padding-bottom: 5rem;
+  border-bottom: var(--border-brutal);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.hero-title-main {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-black);
+}
+
+/* Keyword with 2px stroke and transparent fill */
+.text-stroke-brutal {
+  -webkit-text-stroke: 2.5px var(--color-black);
+  color: transparent;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.hero-subtext {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: #272727;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Browser Mockup Dashboard */
+.browser-mockup-wrap {
+  position: relative;
+}
+
+.browser-mockup {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-xl); /* 12px 12px hard shadow */
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.browser-mockup:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 15px 15px 0px 0px #000000;
+}
+
+.mockup-header-bar {
+  background-color: var(--color-black);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mockup-traffic-lights {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.traffic-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.traffic-red { background-color: #ff5f57; }
+.traffic-yellow { background-color: #febc2e; }
+.traffic-green { background-color: #28c840; }
+
+.mockup-url-pill {
+  background-color: var(--color-dark-gray);
+  color: var(--color-sage);
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 1rem;
+  border-radius: 4px;
+}
+
+.mockup-content-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: #fafafa;
+}
+
+.mockup-dashboard-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.mockup-stat-box {
+  border: var(--border-brutal);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.mockup-stat-sage {
+  background-color: var(--color-sage);
+}
+
+.mockup-stat-charcoal {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.mockup-stat-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.mockup-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mockup-chart-card {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 0.6rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.mockup-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-bars-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  height: 90px;
+  padding-top: 0.5rem;
+}
+
+.chart-bar {
+  flex: 1;
+  background-color: var(--color-yellow);
+  border: var(--border-brutal);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-bar.active {
+  background-color: var(--color-black);
+}
+
+.mockup-live-orders {
+  background-color: var(--color-yellow);
+  border: var(--border-brutal);
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   SOCIAL PROOF MARQUEE
+   Full-width bar, background #171e19, border-b-2 border-black.
+   Contains a continuous horizontal marquee of partner coffee collectives
+   in Cabinet Grotesk, color #b7c6c2, 50% opacity, moving infinitely at a slow linear pace.
+   ========================================================================== */
+.social-proof-bar {
+  background-color: var(--color-charcoal);
+  border-bottom: var(--border-brutal);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 4rem;
+  animation: marquee-roll 28s linear infinite;
+}
+
+.marquee-item {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--color-sage);
+  opacity: 0.5;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.marquee-item::after {
+  content: '★';
+  font-size: 1rem;
+  color: var(--color-yellow);
+}
+
+@keyframes marquee-roll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   PROBLEM VS SOLUTION
+   White background section. Two large 3xl-rounded cards side-by-side.
+   Card A (Problem): #f4f4f5, 2px dashed gray border, 70% opacity.
+   Card B (Solution): #ffe17c, 2px solid black border, 8px hard shadow.
+   ========================================================================== */
+.problem-solution-section {
+  background-color: var(--color-white);
+  padding: 6rem 0;
+  border-bottom: var(--border-brutal);
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: 4rem;
+}
+
+.section-pill-tag {
+  background-color: var(--color-yellow);
+  border: var(--border-brutal);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 1rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-heading-lg {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.cards-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .cards-comparison-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card A: Problem */
+.card-problem {
+  background-color: var(--color-problem-bg);
+  border: 2px dashed #9ca3af;
+  border-radius: 1.5rem; /* 3xl */
+  padding: 2.5rem 2rem;
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-problem:hover {
+  opacity: 0.95;
+}
+
+.card-status-label {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.card-problem .card-status-label {
+  color: #ef4444;
+}
+
+.card-compare-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.compare-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.compare-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.icon-x {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: #fee2e2;
+  border: 2px solid #ef4444;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* Card B: Solution */
+.card-solution {
+  background-color: var(--color-yellow);
+  border: var(--border-brutal);
+  border-radius: 1.5rem; /* 3xl */
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-lg); /* 8px 8px hard shadow */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-solution .card-status-label {
+  color: var(--color-black);
+}
+
+.icon-check {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: var(--color-black);
+  border: var(--border-brutal);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-yellow);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   FEATURE GRID
+   Background #ffe17c, border-y-2 border-black.
+   3-column grid of white cards. Each card: 2px border, 4px hard shadow.
+   Top of card features a 16x16 (64px) icon box in #b7c6c2 that turns #ffe17c on hover.
+   Headings are Cabinet Grotesk 2xl.
+   ========================================================================== */
+.feature-grid-section {
+  background-color: var(--color-yellow);
+  border-top: var(--border-brutal);
+  border-bottom: var(--border-brutal);
+  padding: 6rem 0;
+}
+
+.features-3col-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features-3col-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-3col-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-white-card {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md); /* 4px hard shadow */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-white-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 16x16 (64px) icon box in #b7c6c2 that turns #ffe17c on hover */
+.feature-icon-16 {
+  width: 4rem; /* 64px */
+  height: 4rem; /* 64px */
+  background-color: var(--color-sage);
+  border: var(--border-brutal);
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.feature-white-card:hover .feature-icon-16 {
+  background-color: var(--color-yellow);
+  transform: rotate(-4deg);
+}
+
+.feature-card-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; /* Cabinet Grotesk 2xl */
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-dark-gray);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   HOW IT WORKS
+   Dark mode section (Background #171e19). 3-step horizontal flow.
+   Steps marked by large 24x24 (96px) circles with 4px colored 'glow'/hard borders
+   (Sage, Yellow, White). Connected by a dark gray #272727 horizontal line.
+   ========================================================================== */
+.how-it-works-section {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  padding: 6.5rem 0;
+  border-bottom: var(--border-brutal);
+  position: relative;
+}
+
+.how-steps-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 860px) {
+  .how-steps-track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Dark gray #272727 connecting horizontal line */
+  .how-steps-track::before {
+    content: '';
+    position: absolute;
+    top: 3rem; /* Center of the 96px circle */
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background-color: var(--color-dark-gray);
+    z-index: 1;
+  }
+}
+
+.how-step-col {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Large 24x24 (96px) circle with 4px border */
+.how-step-circle {
+  width: 6rem; /* 96px */
+  height: 6rem; /* 96px */
+  background-color: var(--color-charcoal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 1.75rem;
+  box-shadow: 6px 6px 0px 0px #000000;
+  transition: transform 0.2s;
+}
+
+.how-step-circle:hover {
+  transform: scale(1.08);
+}
+
+.circle-border-sage {
+  border: 4px solid var(--color-sage);
+  color: var(--color-sage);
+}
+
+.circle-border-yellow {
+  border: 4px solid var(--color-yellow);
+  color: var(--color-yellow);
+}
+
+.circle-border-white {
+  border: 4px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.how-step-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--color-white);
+}
+
+.how-step-desc {
+  font-size: 0.95rem;
+  color: var(--color-sage);
+  line-height: 1.55;
+  max-width: 300px;
+}
+
+/* ==========================================================================
+   USE CASE PERSONAS
+   White background. 3-column bento-style grid.
+   Card 1: Sage (#b7c6c2). Card 2: Yellow (#ffe17c) with 8px hard shadow.
+   Card 3: Dark Gray (#272727) with white text.
+   Each card features a white 'pill' badge at the top indicating user type.
+   ========================================================================== */
+.personas-section {
+  background-color: var(--color-white);
+  padding: 6rem 0;
+  border-bottom: var(--border-brutal);
+}
+
+.personas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .personas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.persona-card {
+  border: var(--border-brutal);
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.persona-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card 1: Sage */
+.persona-card-sage {
+  background-color: var(--color-sage);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card 2: Yellow with 8px hard shadow */
+.persona-card-yellow {
+  background-color: var(--color-yellow);
+  box-shadow: var(--shadow-lg); /* 8px 8px hard shadow */
+}
+
+/* Card 3: Dark Gray with white text */
+.persona-card-dark {
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.persona-pill-badge {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: var(--border-brutal);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.95rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.persona-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.persona-quote {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+}
+
+.persona-stat-row {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: var(--border-brutal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.persona-card-dark .persona-stat-row {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   TESTIMONIALS
+   Background #b7c6c2 (Sage). Grid of 3 white cards.
+   Unique styling: Asymmetric corner rounding:
+   Top-Right and Bottom-Left are 3xl (24px), Top-Left and Bottom-Right are 2px.
+   Includes a 5-star rating in #ffbc2e yellow.
+   ========================================================================== */
+.testimonials-section {
+  background-color: var(--color-sage);
+  padding: 6rem 0;
+  border-bottom: var(--border-brutal);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 860px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.asymmetric-testimonial-card {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  /* Asymmetric corner rounding: Top-Right & Bottom-Left: 3xl, Top-Left & Bottom-Right: 2px */
+  border-radius: 2px 24px 2px 24px;
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.asymmetric-testimonial-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0px 0px #000000;
+}
+
+.star-rating-row {
+  display: flex;
+  gap: 0.25rem;
+  color: var(--color-star);
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-quote-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-black);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.testimonial-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.testimonial-avatar {
+  width: 3rem;
+  height: 3rem;
+  border: var(--border-brutal);
+  border-radius: 50%;
+  background-color: var(--color-yellow);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.author-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.author-role {
+  font-size: 0.8rem;
+  color: #52525b;
+}
+
+/* ==========================================================================
+   INTERACTIVE CAFE MENU BENTO SECTION (Neo-Brutalist)
+   ========================================================================== */
+.cafe-menu-section {
+  background-color: var(--color-yellow);
+  padding: 6rem 0;
+  border-bottom: var(--border-brutal);
+}
+
+.menu-category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.menu-filter-btn {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: var(--radius-btn);
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.menu-filter-btn:hover {
+  background-color: var(--color-sage);
+}
+
+.menu-filter-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  box-shadow: var(--shadow-md);
+  transform: translate(2px, 2px);
+}
+
+.menu-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .menu-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .menu-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.brutal-drink-card {
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutal-drink-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0px 0px #000000;
+}
+
+.drink-media-frame {
+  position: relative;
+  height: 220px;
+  border-bottom: var(--border-brutal);
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+}
+
+.drink-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.brutal-drink-card:hover .drink-photo {
+  transform: scale(1.05);
+}
+
+.drink-price-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-yellow);
+  border: var(--border-brutal);
+  border-radius: var(--radius-btn);
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.drink-badge-roast {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 1rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.drink-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.drink-name {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.drink-desc {
+  font-size: 0.875rem;
+  color: #3f3f46;
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  min-height: 2.5rem;
+}
+
+.custom-pill-selector {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.selector-heading-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #71717a;
+}
+
+.pill-options-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.option-chip {
+  background-color: var(--color-problem-bg);
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.option-chip:hover {
+  background-color: var(--color-sage);
+}
+
+.option-chip.selected {
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+}
+
+/* ==========================================================================
+   FINAL CTA & FOOTER
+   Final CTA on #ffe17c with large centered heading.
+   Footer in #171e19 with 4 columns.
+   Social icons are 10x10 squares (#272727) with light gray borders
+   that turn Yellow/Black on hover.
+   ========================================================================== */
+.final-cta-section {
+  background-color: var(--color-yellow);
+  padding: 7rem 0;
+  border-bottom: var(--border-brutal);
+  text-align: center;
+}
+
+.cta-box-center {
+  max-width: 780px;
+  margin-inline: auto;
+  border: var(--border-brutal);
+  background-color: var(--color-white);
+  border-radius: 1.5rem;
+  padding: 4rem 2rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.final-cta-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.final-cta-desc {
+  font-size: 1.15rem;
+  color: #3f3f46;
+  max-width: 540px;
+  margin-inline: auto;
+  margin-bottom: 2.5rem;
+}
+
+/* Footer in #171e19 (Charcoal) with 4 columns */
+.neo-footer {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  padding: 5rem 0 2.5rem;
+}
+
+.footer-4col-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (min-width: 768px) {
+  .footer-4col-grid {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-yellow);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link-item {
+  color: var(--color-sage);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-link-item:hover {
+  color: var(--color-yellow);
+  text-decoration: underline;
+}
+
+/* Social icons are 10x10 squares (#272727) with light gray borders that turn Yellow/Black on hover */
+.social-icons-row {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.social-sq-btn {
+  width: 2.5rem; /* ~10x10 relative size */
+  height: 2.5rem;
+  background-color: var(--color-dark-gray);
+  border: 2px solid #52525b; /* Light gray border */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-sq-btn:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  border-color: var(--color-black);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.footer-bottom-legal {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-sage);
+}
+
+/* ==========================================================================
+   NEO-BRUTALIST CART DRAWER & MODAL
+   ========================================================================== */
+.brutal-cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(23, 30, 25, 0.75);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.brutal-cart-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.brutal-cart-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: min(92vw, 440px);
+  background-color: var(--color-white);
+  border-left: var(--border-brutal);
+  box-shadow: -12px 0px 0px 0px #000000;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutal-cart-backdrop.open .brutal-cart-drawer {
+  transform: translateX(0);
+}
+
+.cart-drawer-header {
+  background-color: var(--color-yellow);
+  border-bottom: var(--border-brutal);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-header-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.cart-close-sq {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s;
+}
+
+.cart-close-sq:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+  background-color: #ef4444;
+}
+
+.cart-items-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-item-brutal {
+  background-color: var(--color-problem-bg);
+  border: var(--border-brutal);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-item-img {
+  width: 52px;
+  height: 52px;
+  border: var(--border-brutal);
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.cart-item-custom {
+  font-size: 0.75rem;
+  color: #52525b;
+}
+
+.cart-item-price {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-black);
+  margin-top: 0.2rem;
+}
+
+.stepper-brutal {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stepper-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--color-white);
+  border: var(--border-brutal);
+  border-radius: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-btn:hover {
+  background-color: var(--color-yellow);
+}
+
+.cart-drawer-bottom {
+  padding: 1.5rem;
+  border-top: var(--border-brutal);
+  background-color: #fafafa;
+}
+
+.cart-summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.cart-summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 2px dashed #000;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* Toast Notification */
+.brutal-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  border: 2px solid var(--color-yellow);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  box-shadow: 6px 6px 0px 0px #000000;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutal-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
