@@ -434,6 +434,72 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoScroll();
   }
 
+  // ==========================================================================
+  // ABOUT SECTION 3-IMAGE AUTO-SCROLL (2s interval, scroll left loop)
+  // ==========================================================================
+  const aboutTrack = document.getElementById('about-coffee-track');
+  const aboutViewport = document.getElementById('about-img-viewport');
+  const aboutDots = document.querySelectorAll('.about-carousel-dots .carousel-dot');
+
+  if (aboutTrack && aboutViewport) {
+    const originalSlides = Array.from(aboutTrack.querySelectorAll('.about-coffee-slide'));
+    const totalSlides = originalSlides.length; // 3 images
+
+    // Seamless infinite clone: append clone of first slide
+    const firstClone = originalSlides[0].cloneNode(true);
+    aboutTrack.appendChild(firstClone);
+
+    let currentSlide = 0;
+    let isSlideTransitioning = false;
+    let autoScrollInterval = null;
+
+    function updateAboutDots(index) {
+      if (!aboutDots.length) return;
+      const activeIdx = index % totalSlides;
+      aboutDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIdx);
+      });
+    }
+
+    function scrollNext() {
+      if (isSlideTransitioning) return;
+      currentSlide++;
+      aboutTrack.style.transition = 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
+      aboutTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateAboutDots(currentSlide);
+
+      // If reached the cloned first slide, smoothly reset back to slide 0 without animation
+      if (currentSlide === totalSlides) {
+        isSlideTransitioning = true;
+        setTimeout(() => {
+          aboutTrack.style.transition = 'none';
+          currentSlide = 0;
+          aboutTrack.style.transform = 'translateX(0%)';
+          isSlideTransitioning = false;
+        }, 660);
+      }
+    }
+
+    function startAboutAutoScroll() {
+      stopAboutAutoScroll();
+      autoScrollInterval = setInterval(scrollNext, 2000); // 2 seconds auto-scroll
+    }
+
+    function stopAboutAutoScroll() {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+      }
+    }
+
+    // Pause on mouse hover, resume on mouse leave
+    aboutViewport.addEventListener('mouseenter', stopAboutAutoScroll);
+    aboutViewport.addEventListener('mouseleave', startAboutAutoScroll);
+
+    // Start auto-scrolling immediately
+    startAboutAutoScroll();
+  }
+
   // Initial cart render
   renderCart();
 });

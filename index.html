@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mocharé | Neo-Brutalist Specialty Coffee & Roastery</title>
   <meta name="description" content="A vibrant Neo-Brutalist Specialty Coffee & Roastery platform built with high-contrast borders, hard offset shadows, and bold geometric typography.">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=9">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23171e19%22/><text y=%22.75em%22 x=%22.18em%22 font-size=%2280%22 fill=%22%23ffe17c%22 font-weight=%22bold%22>⚡</text></svg>">
 </head>
 <body>
@@ -167,14 +167,43 @@
     <section class="brutal-about-section" id="about">
       <div class="container-max">
         <div class="brutal-about-grid">
-          <!-- Left: Multi-layered Neo-Brutalist Visual Showcase -->
+          <!-- Left: Multi-layered Neo-Brutalist Visual Showcase (Pure Layout - No Text) -->
           <div class="brutal-about-visual">
-            <!-- Tilted Yellow Brutalist Offset Slab -->
-            <div class="brutal-visual-slab" aria-hidden="true"></div>
+            <!-- Parallel Offset Backdrop Slab -->
+            <div class="brutal-visual-backdrop" aria-hidden="true"></div>
 
-            <!-- Foreground Photo Card -->
+            <!-- Foreground Primary Photo Card -->
             <div class="brutal-visual-card">
-              <img src="assets/images/feature-pourover.jpg" alt="Artisan single-origin pour-over extraction at Mocharé atelier" loading="lazy">
+              <!-- Minimal Window / Viewfinder Bar -->
+              <div class="card-frame-header" aria-hidden="true">
+                <span class="frame-dot"></span>
+                <span class="frame-dot"></span>
+                <span class="frame-dot"></span>
+              </div>
+              <div class="visual-img-wrapper" id="about-img-viewport">
+                <div class="about-coffee-track" id="about-coffee-track">
+                  <div class="about-coffee-slide">
+                    <img src="assets/images/feature-pourover.jpg" alt="Artisan single-origin pour-over extraction at Mocharé atelier" loading="lazy">
+                  </div>
+                  <div class="about-coffee-slide">
+                    <img src="assets/images/hero-espresso.jpg" alt="Precision espresso extraction at Mocharé roastery" loading="lazy">
+                  </div>
+                  <div class="about-coffee-slide">
+                    <img src="assets/images/about-coffee-cup.jpg" alt="Handcrafted specialty latte in ceramic cup" loading="lazy">
+                  </div>
+                </div>
+                <!-- Minimal visual slide indicators -->
+                <div class="about-carousel-dots" aria-hidden="true">
+                  <span class="carousel-dot active"></span>
+                  <span class="carousel-dot"></span>
+                  <span class="carousel-dot"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overlapping Detail Photo Thumbnail (Roasted Beans Collage Accent) -->
+            <div class="visual-accent-thumb" aria-hidden="true">
+              <img src="assets/images/coffee-beans-4k.jpg" alt="Freshly roasted artisan coffee beans" loading="lazy">
             </div>
           </div>
 
@@ -726,6 +755,6 @@
     </aside>
   </div>
 
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

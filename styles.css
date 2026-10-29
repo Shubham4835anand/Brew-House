@@ -1859,103 +1859,179 @@ body {
   align-items: center;
 }
 
-/* Left: Multi-layered Neo-Brutalist Visual Card */
+/* Left: Multi-layered Neo-Brutalist Visual Showcase (Pure Layout - No Text) */
 .brutal-about-visual {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1.5rem 2rem 1rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-/* Offset angled yellow backdrop slab */
-.brutal-visual-slab {
+/* Parallel Geometric Offset Backdrop Slab */
+.brutal-visual-backdrop {
   position: absolute;
-  inset: 0.5rem 0.5rem 1.5rem 1.5rem;
+  inset: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: var(--color-yellow);
-  border: var(--border-brutal);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.22) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  border: 2.5px solid var(--color-black);
   border-radius: 1.25rem;
-  box-shadow: var(--shadow-lg);
-  transform: rotate(-2.5deg);
+  box-shadow: 8px 8px 0px 0px var(--color-black);
+  transform: translate(16px, 16px);
   z-index: 1;
+  pointer-events: none;
+  transition: transform 0.35s ease;
 }
 
-/* Foreground primary photo card */
+.brutal-about-visual:hover .brutal-visual-backdrop {
+  transform: translate(20px, 20px);
+}
+
+/* Foreground Primary Photo Card */
 .brutal-visual-card {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 480px;
-  height: 440px;
   border-radius: 1.25rem;
-  border: var(--border-brutal);
+  border: 2.5px solid var(--color-black);
   overflow: hidden;
   background-color: var(--color-charcoal);
-  box-shadow: var(--shadow-xl);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 10px 10px 0px 0px var(--color-black);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
 }
 
 .brutal-visual-card:hover {
   transform: translate(-3px, -3px);
+  box-shadow: 14px 14px 0px 0px var(--color-black);
 }
 
-.brutal-visual-card img {
+/* Minimal Window / Viewfinder Top Bar */
+.card-frame-header {
+  height: 32px;
+  background-color: var(--color-charcoal);
+  border-bottom: 2px solid var(--color-black);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 7px;
+}
+
+.frame-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-black);
+  display: inline-block;
+}
+
+.frame-dot:nth-child(1) {
+  background-color: var(--color-yellow);
+}
+
+.frame-dot:nth-child(2) {
+  background-color: var(--color-white);
+}
+
+.frame-dot:nth-child(3) {
+  background-color: var(--color-sage);
+}
+
+/* Main Image Wrapper as Carousel Viewport */
+.visual-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+}
+
+.about-coffee-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.about-coffee-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-coffee-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s ease;
 }
 
-.brutal-visual-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Floating bottom-right widget */
-.brutal-floating-widget {
+/* Minimalist Carousel Dots (Pure visual indicators, NO text) */
+.about-carousel-dots {
   position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border: var(--border-brutal);
-  border-radius: var(--radius-btn);
-  padding: 0.85rem 1.25rem;
-  box-shadow: var(--shadow-md);
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+  background: rgba(23, 30, 25, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--color-yellow);
+  width: 18px;
+  border-radius: 999px;
+}
+
+/* Overlapping Detail Photo Thumbnail (Collage Accent) */
+.visual-accent-thumb {
+  position: absolute;
+  bottom: -0.75rem;
+  right: -0.75rem;
   z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  max-width: 290px;
+  width: 150px;
+  height: 150px;
+  border-radius: 1rem;
+  border: 2.5px solid var(--color-black);
+  overflow: hidden;
+  box-shadow: 8px 8px 0px 0px var(--color-black);
+  transform: rotate(3deg);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  background-color: var(--color-charcoal);
 }
 
-.widget-icon-box {
-  width: 2.4rem;
-  height: 2.4rem;
-  background-color: var(--color-yellow);
-  border: var(--border-brutal);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
+.visual-accent-thumb:hover {
+  transform: rotate(0deg) scale(1.06) translate(-3px, -3px);
+  box-shadow: 11px 11px 0px 0px var(--color-black);
 }
 
-.widget-text-title {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-black);
-}
-
-.widget-text-sub {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #555555;
-  margin-top: 0.15rem;
+.visual-accent-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Right: Content & Specs */
@@ -2030,5 +2106,25 @@ body {
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .brutal-about-visual {
+    padding: 1rem 1rem 1.5rem 0.5rem;
+    max-width: 380px;
+  }
+  .visual-img-wrapper {
+    height: 360px;
+  }
+  .visual-accent-thumb {
+    width: 110px;
+    height: 110px;
+    bottom: -0.5rem;
+    right: -0.5rem;
+  }
+  .brutal-visual-backdrop {
+    transform: translate(12px, 12px);
+  }
+}
+
 
 
